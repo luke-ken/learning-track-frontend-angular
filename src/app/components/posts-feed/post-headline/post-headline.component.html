@@ -1,0 +1,13 @@
+<div class="row">
+
+    <div class="card text-white bg-dark mb-2 container-fluid" [routerLink]="['/post', postHeadline.id]">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">{{getLocalTimeFromTimestamp()}}</small></p>
+        <h3 class="card-title">{{postHeadline.title}}</h3>
+        <h5 class="card-text mb-2">
+          <span *ngFor="let tag of postHeadline.tags" class="badge"><span class="tag-prefix">#</span>{{tag}}</span>
+        </h5>
+      </div>
+    </div>
+
+</div>
