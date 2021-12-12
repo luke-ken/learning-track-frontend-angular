@@ -1,0 +1,38 @@
+<div class="row">
+<!--  <div class="container-fluid">-->
+  <div class="card mb-3 container-fluid">
+    <div class="card-body">
+    <form [formGroup]="editPostForm" (ngSubmit)="onSubmit()">
+
+      <div class="card-title">
+      <div class="form-group">
+        <input
+          pInputText id="title" formControlName="title" type="text" autocomplete="off" class="container-fluid p-inputtext-lg"
+                      placeholder="New post title here..." />
+      </div>
+      </div>
+
+      <div class="card-text mb-2">
+      <div class="form-group">
+
+        <input
+          pInputText id="tags" formControlName="tags" type="text" autocomplete="off"
+                      [pKeyFilter]="alphabeticAndCommaOnly" class="container-fluid p-inputtext-sm"
+                      placeholder="Add the associated tagss here..." />
+      </div>
+      </div>
+
+      <div class="card-text">
+      <div class="form-group">
+        <p-editor formControlName="content" [(ngModel)]="editorContent" [style]="{'height': '500px'}"
+                  [modules]="modules"></p-editor>
+      </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">{{editMode? 'Update post' : 'Create post'}}</button>
+      <button *ngIf="editMode" type="button" class="btn btn-danger float-right" (click)="onCancelEdit()">Cancel</button>
+
+    </form>
+  </div>
+  </div>
+</div>
