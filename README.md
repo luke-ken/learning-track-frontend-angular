@@ -1,27 +1,35 @@
-# LearningTrackFrontendAngular
+_**This project is a hobby project and is still a work in
+progress, so if something is not running please don't be mad**_ :smile:  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+# Learning Track (Front-end)
+This is the front-end part of the LSDP (Learn-Solve-Document-Progress) web-app. The back-end
+counterpart can be found [here](https://github.com/luke-ken/learning-track).
 
-## Development server
+(**Make sure to check out the back-end part too as both are intent to run together!**)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Prerequisites
+* Node 14
+* Angular CLI 10
 
-## Code scaffolding
+You need to install the correct version as this project is built with Angular 10,
+which is **NOT** compatible with newer Node version (e.g. 16, 17).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to run
 
-## Build
+### 1. With Development server
+Run `ng serve` for a dev server. Then navigate to `http://localhost:4200` to access the front-end.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### 2. With Docker
+First run `ng build --prod` to build the project.
+After the build is done, run the following to build a docker image:
+```
+docker build -t lsdp-client . 
+```
+Then start up a container with the freshly built image:
+```
+docker run --name lsdp-client-container -d -p 8080:80 lsdp-client 
+```
+Navigate to `http://localhost:8080` to access the front-end.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## User credentials
+You can log in using [this credentials](https://github.com/luke-ken/learning-track#user-credentials) from the back-end.
