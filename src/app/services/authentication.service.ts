@@ -2,16 +2,17 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
+import {TokenStorageService} from './token-storage.service';
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
 
   AUTH_API = 'http://localhost:9000/api/auth/login';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private tokenService: TokenStorageService) {
   }
 
-  signin(loginForm: FormGroup): Observable<any> {
+  login(loginForm: FormGroup): Observable<any> {
     const formDataJson = JSON.stringify(loginForm.getRawValue());
 
     const httpOptions = {
@@ -19,5 +20,10 @@ export class AuthenticationService {
     };
 
     return this.http.post(this.AUTH_API, formDataJson, httpOptions);
+  }
+
+  logout(): void {
+    this.tokenService.removeToken();
+    this.tokenService.removeUser();
   }
 }
