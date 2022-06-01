@@ -1,12 +1,18 @@
 <app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <app-sidebar></app-sidebar>
+    <!--    <div class="col-md-3">-->
+    <!--      <app-sidebar></app-sidebar>-->
+    <!--    </div>-->
+    <div *ngIf="isLoginUrl; else notLoginUrl" class="col-md-4 mx-auto">
+      <app-login></app-login>
     </div>
-    <div class="col-md-9">
-      <router-outlet></router-outlet>
-    </div>
+
+    <ng-template #notLoginUrl>
+      <div class="col-md-9 mx-auto">
+        <router-outlet></router-outlet>
+      </div>
+    </ng-template>
   </div>
 </div>
 
