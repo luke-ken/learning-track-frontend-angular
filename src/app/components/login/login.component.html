@@ -1,4 +1,3 @@
-<p>login works!</p>
 <div class="row">
   <div class="card container-fluid">
     <div class="card-body">
@@ -7,18 +6,18 @@
         <div class="card-text mb-2">
           <label for="username">Username</label>
           <div class="form-group">
-            <input pInputText id="username" formControlName="username" type="text" autocomplete="off" />
+            <input pInputText [style]="{width: '100%'}" id="username" formControlName="username" type="text" autocomplete="off" />
           </div>
         </div>
 
         <div class="card-text mb-2">
           <label for="password">Password</label>
           <div class="form-group">
-            <input pInputText id="password" formControlName="password" type="password" autocomplete="off" />
+            <input pInputText [style]="{width: '100%'}" id="password" formControlName="password" type="password" autocomplete="off" />
           </div>
         </div>
 
-        <button class="btn btn-primary" type="submit">Log in</button>
+        <button class="btn btn-primary d-flex mx-auto" type="submit">Log in</button>
       </form>
     </div>
   </div>
