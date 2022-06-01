@@ -30,7 +30,7 @@
       </div>
 
       <button class="btn btn-primary" type="submit">{{editMode? 'Update post' : 'Create post'}}</button>
-      <button *ngIf="editMode" type="button" class="btn btn-danger float-right" (click)="onCancelEdit()">Cancel</button>
+      <button type="button" class="btn btn-danger float-right" (click)="onCancelEdit(editMode)">Cancel</button>
 
     </form>
   </div>

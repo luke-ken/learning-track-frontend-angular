@@ -53,7 +53,7 @@ export class PostEditComponent implements OnInit, OnDestroy {
     if (this.editMode) {
       this.editPostForm.patchValue({
         title: this.currentPost.title,
-        tags: this.currentPost.tags
+        tags: this.currentPost.tags.join(',')
       });
       this.editorContent = this.currentPost.content;
     }
@@ -110,8 +110,13 @@ export class PostEditComponent implements OnInit, OnDestroy {
     }
   }
 
-  onCancelEdit(): void {
-    this.router.navigate(['/post/', this.currentPost.id]);
+  onCancelEdit(editMode: boolean): void {
+    if (editMode) {
+      this.router.navigate(['/post/', this.currentPost.id]);
+    } else {
+      this.router.navigate(['/posts-feed']);
+    }
+
   }
 
   ngOnDestroy(): void {
