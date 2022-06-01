@@ -30,4 +30,11 @@ export class TokenStorageService {
     sessionStorage.removeItem(this.USER_KEY);
     sessionStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
+
+  public removeToken(): void {
+    sessionStorage.removeItem(this.TOKEN_KEY);
+  }
+  public removeUser(): void {
+    sessionStorage.removeItem(this.USER_KEY);
+  }
 }
